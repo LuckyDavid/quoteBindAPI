@@ -31,17 +31,12 @@ public class ProductApiController implements ProductApi {
     }
 
     public ResponseEntity<List<Product>> getAllProducts() {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
             try {
             	return new ResponseEntity<List<Product>>(productService.getAllProducts(), HttpStatus.OK);
             } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<Product>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
-        }
-
-        return new ResponseEntity<List<Product>>(HttpStatus.NOT_IMPLEMENTED);
     }
 	
 }
