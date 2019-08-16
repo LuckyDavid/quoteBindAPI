@@ -2,12 +2,14 @@ package com.hiscox.demo.quotebind.model;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
 
+@Entity
 public class IndustrySector {
 	@Id
 	@JsonProperty("id")
