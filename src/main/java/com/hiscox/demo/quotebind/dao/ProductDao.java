@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,7 @@ public class ProductDao {
 	private EntityManager entityManager;
 	
 	public List<Product> getAllProducts(){
-		Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Product.class);
+		Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Product.class).setFetchMode("availableIndustries.id", FetchMode.JOIN);
 		return criteria.list();
 	}
 }

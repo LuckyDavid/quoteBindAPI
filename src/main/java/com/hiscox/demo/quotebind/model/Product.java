@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,7 +28,7 @@ public class Product {
 	@JsonProperty("name")
 	private String name = null;
 	
-	@ManyToMany(targetEntity=IndustrySector.class,fetch=FetchType.EAGER)
+	@ManyToMany(targetEntity=IndustrySector.class)
 	@JsonProperty("availableIndustries")
 	@Valid
 	private List<IndustrySector> availableIndustries = null;
